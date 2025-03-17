@@ -1,0 +1,33 @@
+{% extends 'shared/base.html' %}
+{% block conteudo %}
+
+<br><br>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for aluno in alunos %}
+            <tr>
+                <td>{{aluno.id}}</td>
+                <td>{{aluno.nome}}</td>
+                <td>{{aluno.matricula}}</td>
+                <td>
+                    {% if aluno.status %}
+                        Ativo
+                    {% else %}
+                        Inativo
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
